@@ -2,13 +2,19 @@ package main
 
 import (
 	"bufio"
+	"flag"
 	"fmt"
 	"os"
 	"strings"
 )
 
 func main() {
-	f, err := os.Open("example.log")
+	path := flag.String("path", "example.log", "The path to the log file that should be filtered")
+	level := flag.String("level", "INFO", "Log level to search for, options available are INFO, WARNING, ERROR, TRACE")
+
+	flag.Parse()
+
+	f, err := os.Open(*path)
 	if err != nil {
 		panic(err)
 	}
@@ -32,7 +38,7 @@ func main() {
 			}
 		}
 
-		if strings.Contains(s, "INFO") {
+		if strings.Contains(s, *level) {
 			fmt.Println(s)
 		}
 	}
