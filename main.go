@@ -55,7 +55,7 @@ func main() {
 
 		for _, l := range levels {
 			if strings.Contains(s, l) {
-				fmt.Println(s)
+				fmt.Print(s)
 				break
 			}
 		}
