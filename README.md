@@ -1,5 +1,5 @@
 # filter-log
-simple go cli tool to filter log file.
+Simple Go CLI tool to filter log file.
 
 ## Install
 1. ```  git clone https://github.com/KyriakosMilad/filter-log ```
