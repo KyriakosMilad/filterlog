@@ -10,23 +10,23 @@ import (
 
 func main() {
 	path := flag.String("path", "example.log", "The path to the log file that should be filtered")
-	level := flag.String("level", "INFO", "Log level to search for, options available are INFO, WARNING, ERROR, TRACE, for multiple options separate them by coma: WARNING,ERROR")
+	filter := flag.String("filter", "", "Log filters to search for, options available: any text that doesn't contain a comma ',', for multiple options separate them by coma: WARNING,ERROR")
 
 	flag.Parse()
 
-	var levels []string
+	var filters []string
 
-	if strings.Contains(*level, ",") {
-		levels = strings.Split(*level, ",")
+	if strings.Contains(*filter, ",") {
+		filters = strings.Split(*filter, ",")
 
 		// remove empty strings
-		for k, v := range levels {
+		for k, v := range filters {
 			if v == "" {
-				levels = append(levels[:k], levels[k+1:]...)
+				filters = append(filters[:k], filters[k+1:]...)
 			}
 		}
 	} else {
-		levels = []string{*level}
+		filters = []string{*filter}
 	}
 
 	f, err := os.Open(*path)
@@ -53,8 +53,8 @@ func main() {
 			}
 		}
 
-		for _, l := range levels {
-			if strings.Contains(s, l) {
+		for _, f := range filters {
+			if strings.Contains(s, f) {
 				fmt.Print(s)
 				break
 			}
