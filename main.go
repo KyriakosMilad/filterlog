@@ -9,10 +9,18 @@ import (
 )
 
 func main() {
-	path := flag.String("path", "example.log", "The path to the log file that should be filtered")
+	path := flag.String("path", "", "The path to the log file that should be filtered")
 	filter := flag.String("filter", "", "Log filters to search for, options available: any text that doesn't contain a comma ',', for multiple options separate them by coma: WARNING,ERROR")
 
 	flag.Parse()
+
+	if *path == "" {
+		panic("path is required")
+	}
+
+	if *filter == "" {
+		panic("filter is required")
+	}
 
 	var filters []string
 
