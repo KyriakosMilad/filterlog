@@ -1,6 +1,6 @@
 # filterlog
 
-Simple Go CLI tool to filter log file.
+Go CLI tool to filter log file.
 
 ## Install
 
@@ -17,15 +17,15 @@ display help menu:
 
 path to the log file (required string):
 
-    -path <value>
+    -path <string>
 
 filter/s to search for (required string):
 
-    -filter <value>
+    -filter <string>
 
 separator to use when you want to filter multiple options (optional string):
 
-    -separator <true||false>
+    -separator <string>
 
 print the results into file (optional boolean) (default: false):
 
