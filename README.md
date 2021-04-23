@@ -11,8 +11,7 @@ Simple Go CLI tool to filter log file.
 
 ## Usage
 
-You can filter the log file with any text you want, date, time, level, etc..., but text must not include coma which is
-used to separate between multiple filters.
+You can filter the log file with any text you want, date, time, level, etc...
 
      filter-log -path <path_to_the_log_file> -filter <filter_to_search>
 
