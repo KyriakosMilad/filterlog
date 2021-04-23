@@ -17,6 +17,11 @@ func main() {
 
 	flag.Parse()
 
+	if *path == "" && *filter == "" {
+		flag.PrintDefaults()
+		os.Exit(1)
+	}
+
 	if *path == "" {
 		panic("path is required")
 	}
