@@ -1,3 +1,3 @@
-module github.com/KyriakosMilad/filter-log
+module github.com/KyriakosMilad/filterlog
 
 go 1.16
