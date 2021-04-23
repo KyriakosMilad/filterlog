@@ -27,7 +27,7 @@ separator to use when you want to filter multiple options (optional string):
 
     -separator <true||false>
 
-print the result into file (optional boolean) (default: false):
+print the results into file (optional boolean) (default: false):
 
     -output_file <true||false>
 
