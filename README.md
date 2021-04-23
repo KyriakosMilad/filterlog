@@ -18,7 +18,7 @@ used to separate between multiple filters.
 
 multiple filter options:
 
-    filter-log -path <path_to_the_log_file> -filter <filter1,filter2,filter3,...>
+    filter-log -path <path_to_the_log_file> -filter <filter1,filter2,filter3> -separator <separator>
 
 ## Help
 

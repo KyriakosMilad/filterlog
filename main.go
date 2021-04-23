@@ -10,7 +10,8 @@ import (
 
 func main() {
 	path := flag.String("path", "", "The path to the log file that should be filtered")
-	filter := flag.String("filter", "", "Log filters to search for, options available: any text that doesn't contain a comma ',', for multiple options separate them by coma: WARNING,ERROR")
+	filter := flag.String("filter", "", "Log filters to search for")
+	separator := flag.String("separator", "", "Separate between multiple filters")
 
 	flag.Parse()
 
@@ -24,8 +25,8 @@ func main() {
 
 	var filters []string
 
-	if strings.Contains(*filter, ",") {
-		filters = strings.Split(*filter, ",")
+	if *separator != "" && strings.Contains(*filter, *separator) {
+		filters = strings.Split(*filter, *separator)
 
 		// remove empty strings
 		for k, v := range filters {
