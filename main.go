@@ -6,12 +6,14 @@ import (
 	"fmt"
 	"os"
 	"strings"
+	"time"
 )
 
 func main() {
 	path := flag.String("path", "", "The path to the log file that should be filtered")
 	filter := flag.String("filter", "", "Log filters to search for")
 	separator := flag.String("separator", "", "Separate between multiple filters")
+	outputFile := flag.Bool("output_file", false, "Which to output the result to file or not")
 
 	flag.Parse()
 
@@ -52,20 +54,60 @@ func main() {
 
 	r := bufio.NewReader(f)
 
-	for {
-		s, err := r.ReadString('\n')
+	// check if outputFile == true here better than checking it every line inside the loop
+	if *outputFile {
+		fileName := "filer_log_" + time.Now().Format("2006-01-02_15:04:05") + ".log"
+		outputFileName, err := os.Create(fileName)
+
 		if err != nil {
-			if err.Error() == "EOF" {
-				break
-			} else {
-				panic(err)
-			}
+			panic(err)
 		}
 
-		for _, f := range filters {
-			if strings.Contains(s, f) {
-				fmt.Print(s)
-				break
+		defer func(f *os.File) {
+			err := f.Close()
+			if err != nil {
+				panic(err)
+			}
+		}(outputFileName)
+
+		for {
+			s, err := r.ReadString('\n')
+			if err != nil {
+				if err.Error() == "EOF" {
+					break
+				} else {
+					panic(err)
+				}
+			}
+
+			for _, f := range filters {
+				if strings.Contains(s, f) {
+					fmt.Print(s)
+					_, err := outputFileName.WriteString(s)
+
+					if err != nil {
+						panic(err)
+					}
+					break
+				}
+			}
+		}
+	} else {
+		for {
+			s, err := r.ReadString('\n')
+			if err != nil {
+				if err.Error() == "EOF" {
+					break
+				} else {
+					panic(err)
+				}
+			}
+
+			for _, f := range filters {
+				if strings.Contains(s, f) {
+					fmt.Print(s)
+					break
+				}
 			}
 		}
 	}
