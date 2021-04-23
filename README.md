@@ -18,7 +18,3 @@ You can filter the log file with any text you want, date, time, level, etc...
 multiple filter options:
 
     filter-log -path <path_to_the_log_file> -filter <filter1,filter2,filter3> -separator <separator>
-
-## Help
-
-    filter-log -help
