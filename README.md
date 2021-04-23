@@ -40,3 +40,18 @@ You can filter the log file with any text you want, date, time, level, etc...
 multiple filter options:
 
     filter-log -path <path_to_the_log_file> -filter <filter1,filter2,filter3> -separator <separator>
+
+## Examples
+
+one filter example:
+
+    filter-log -path example.log -filter INFO
+
+multiple filters example:
+
+    filter-log -path example.log -filter "INFO,WARNING,ERROR" -separator ","
+    filter-log -path example.log -filter "TRACE 04/21" -separator " "
+
+output the results into file:
+
+    filter-log -path example.log -filter "ERROR" -output_file true
