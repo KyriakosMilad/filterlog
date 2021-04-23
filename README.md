@@ -9,6 +9,28 @@ Simple Go CLI tool to filter log file.
 3. ```  go install . ```
 4. Now you can use filter-log command from anywhere.
 
+## Options
+
+display help menu:
+
+    -help
+
+path to the log file (required string):
+
+    -path <value>
+
+filter/s to search for (required string):
+
+    -filter <value>
+
+separator to use when you want to filter multiple options (optional string):
+
+    -separator <true||false>
+
+print the result into file (optional boolean) (default: false):
+
+    -output_file <true||false>
+
 ## Usage
 
 You can filter the log file with any text you want, date, time, level, etc...
