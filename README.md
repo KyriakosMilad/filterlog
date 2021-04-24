@@ -44,11 +44,11 @@ multiple filter options:
 
 ## Examples
 
-one filter example:
+one filter:
 
     filterlog -path example.log -filter INFO
 
-multiple filters example:
+multiple filters:
 
     filterlog -path example.log -filter "INFO,WARNING,ERROR" -separator ","
     filterlog -path example.log -filter "TRACE 04/21" -separator " "
