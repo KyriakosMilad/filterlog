@@ -2,7 +2,7 @@
 
 Go CLI tool to filter log file.
 
-## Install
+## Installation
 
 1. ```  git clone https://github.com/KyriakosMilad/filterlog ```
 2. ```  cd filterlog ```
