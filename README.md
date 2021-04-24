@@ -4,10 +4,11 @@ Go CLI tool to filter log file.
 
 ## Installation
 
-1. ```  git clone https://github.com/KyriakosMilad/filterlog ```
-2. ```  cd filterlog ```
-3. ```  go install . ```
-4. Now you can use filterlog command from anywhere.
+    $ go get github.com/KyriakosMilad/filterlog
+
+verify installation:
+
+    $ filterlog
 
 ## Options
 
