@@ -16,7 +16,7 @@ type filterlog struct {
 	results   []string
 }
 
-func (fl *filterlog) new(path string, filters string, separator string) {
+func (fl *filterlog) init(path string, filters string, separator string) {
 	fl.path = path
 	fl.separator = separator
 	if separator != "" && strings.Contains(filters, separator) {
@@ -116,7 +116,7 @@ func main() {
 	}
 
 	fl := &filterlog{}
-	fl.new(*path, *filters, *separator)
+	fl.init(*path, *filters, *separator)
 	fl.search()
 	if *exportResults {
 		fl.exportResults()
