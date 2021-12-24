@@ -4,7 +4,7 @@ Go CLI tool to filter log file.
 
 ## Installation
 
-    $ go get github.com/KyriakosMilad/filterlog
+    $ go install github.com/KyriakosMilad/filterlog
 
 verify installation:
 
